@@ -1,5 +1,5 @@
 from parser import pack, unpack
-import types
+import inspect
 import pprint
 
 
@@ -21,8 +21,17 @@ class Testing():
 # for k, v in pack(Testing).items():
 #     pprint.pprint(f'{k} : {v}')
 
-data = pack(Testing)
-new_class = unpack(data)
+b = Testing()
+b.MY_FANCY_DUCKING_ATTRIBUTE = 10
 
-a = new_class()
-print(a._my_custom_method(4, 5))
+
+def say_hello_YAY(h):
+    print('Hello '+h)
+
+
+b.say_hello_YAY = say_hello_YAY
+
+
+data = pack(b)
+new_obj = unpack(data)
+new_obj.say_hello_YAY('boi')
