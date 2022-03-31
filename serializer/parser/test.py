@@ -1,3 +1,4 @@
+from random import random
 from parser import pack, unpack
 import inspect
 import pprint
@@ -14,19 +15,18 @@ class Testing():
         return a*b
 
 
-# for k, v in Testing.__dict__.items():
-#     print(f'{k} : {v}')
-
-# print(Testing.__dict__)
-# for k, v in pack(Testing).items():
-#     pprint.pprint(f'{k} : {v}')
-
 b = Testing()
-b.MY_FANCY_DUCKING_ATTRIBUTE = 10
+b.MY_FANCY_DUCKING_ATTRIBUTE = {
+    k: v for k, v in zip(range(0, 10), range(9, 19))}
 
 
 def say_hello_YAY(h):
     print('Hello '+h)
+
+
+class Boy():
+    def greet():
+        print("I'm BOYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY")
 
 
 b.say_hello_YAY = say_hello_YAY
@@ -34,4 +34,4 @@ b.say_hello_YAY = say_hello_YAY
 
 data = pack(b)
 new_obj = unpack(data)
-new_obj.say_hello_YAY('boi')
+print(new_obj.MY_FANCY_DUCKING_ATTRIBUTE)

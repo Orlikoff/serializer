@@ -75,7 +75,8 @@ def ressurect_class(data):
 def bury_object(obj):
     parsed = {}
     parsed['object_type'] = 'object'
-    parsed['fields'], parsed['methods'], parsed['functions'] = {}, {}, {}
+    parsed['fields'], parsed['methods'], parsed['functions'],\
+        parsed['classes'], parsed['objects'] = {}, {}, {}, {}, {}
 
     object_data = inspect.getmembers(obj)
 
@@ -86,6 +87,11 @@ def bury_object(obj):
             parsed['methods'][name] = bury_func(value)
         elif inspect.isfunction(value):
             parsed['functions'][name] = bury_func(value)
+        # elif inspect.isclass(value):
+        #     parsed['classes'][name] = bury_class(value)
+        # else:
+        #     print('HREEREREs')
+        #     parsed['objects'][name] = bury_object(value)
 
     return parsed
 
@@ -101,6 +107,12 @@ def ressurect_object(data):
 
     for k, v in data['functions'].items():
         setattr(new_object, k, ressurect_func(v))
+
+    # for k, v in data['classes'].items():
+    #     setattr(new_object, k, ressurect_class(v))
+
+    # for k, v in data['objects'].items():
+    #     setattr(new_object, k, ressurect_object(v))
 
     for k, v in data['fields'].items():
         if v[1] == "<class 'int'>":
