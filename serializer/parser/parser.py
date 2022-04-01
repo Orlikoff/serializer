@@ -7,8 +7,6 @@ def pack(obj):
         return bury_func(obj)
     elif inspect.isclass(obj):
         return bury_class(obj)
-    elif obj in (int, str, bool, tuple, dict, list):
-        pass
     else:
         return bury_object(obj)
 

@@ -25,6 +25,9 @@ def say_hello_YAY(h):
 
 
 class Boy():
+    ass = 10
+    str_ass = Testing()
+
     def greet():
         print("I'm BOYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY")
 
@@ -32,6 +35,7 @@ class Boy():
 b.say_hello_YAY = say_hello_YAY
 
 
-data = pack(b)
+data = pack(Boy)
 new_obj = unpack(data)
-print(new_obj.MY_FANCY_DUCKING_ATTRIBUTE)
+print(new_obj.ass)
+print(new_obj.str_ass._my_custom_method(5, 10))
