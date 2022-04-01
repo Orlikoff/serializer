@@ -1,5 +1,11 @@
-from formatter.formatter import Formatter
-from parser.parser import Parser
+from formatter import serialize_dict_json
+from parser import pack, unpack
 
-class Serializer:
-    pass
+
+def dumps(obj):
+    return serialize_dict_json(pack(obj), '')
+
+
+def dump(obj, filepath):
+    with open(filepath, 'w') as file:
+        file.writelines(serialize_dict_json(pack(obj), ''))

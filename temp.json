@@ -1,0 +1,61 @@
+{
+	"object_type": "class", 
+	"fields": 	{
+		"lolich": 		[
+			"10",
+			"int",
+		],
+		"dum": 		[
+						{
+				"object_type": "object", 
+				"fields": 				{
+				},
+				"methods": 				{
+				},
+				"functions": 				{
+				},
+				"classes": 				{
+				},
+				"objects": 				{
+				},
+			},
+			"class_type",
+		],
+		"__dict__": 		[
+			"<attribute '__dict__' of 'Test' objects>",
+			"getset_descriptor",
+		],
+	},
+	"methods": 	{
+		"_Test__init": 		{
+			"object_type": "function", 
+			"argcount": "1", 
+			"cellvars": 			[
+			],
+			"code": "b't\x00d\x01\x83\x01\x01\x00d\x00S\x00'", 
+			"consts": 			[
+				"None",
+				"AWAKE!",
+			],
+			"filename": "c:\Users\Orlik\Desktop\temp\serializer\test.py", 
+			"firstlineno": "12", 
+			"flags": "67", 
+			"freevars": 			[
+			],
+			"kwonlyargcount": "0", 
+			"lnotab": "b'\x00\x01'", 
+			"name": "__init", 
+			"names": 			[
+				"print",
+			],
+			"nlocals": "1", 
+			"posonlyargcount": "0", 
+			"stacksize": "2", 
+			"varnames": 			[
+				"self",
+			],
+			"globals": 			{
+			},
+		},
+	},
+},

@@ -5,6 +5,13 @@ import types
 BUILTIN_TYPES = ('int', 'str', 'bool', 'list',
                  'dict', 'tuple', 'getset_descriptor')
 
+WASTE = ('__doc__', '__eq__', '__format__', '__ge__',
+         '__getattribute__', '__gt__', '__hash__',
+         '__le__', '__lt__', '__module__', '__ne__',
+         '__reduce__', '__reduce_ex__', '__repr__',
+         '__setattr__', '__sizeof__', '__subclasshook__',
+         '__weakref__', '__delattr__', '__new__')
+
 
 def bury_func(func):
     """Parses function into dictionary format"""
@@ -62,6 +69,8 @@ def bury_class(cls):
     class_data = cls.__dict__
 
     for name, value in class_data.items():
+        if name in WASTE:
+            continue
         if inspect.isfunction(value):
             parsed['methods'][name] = bury_func(value)
         elif type(value).__name__ not in BUILTIN_TYPES and not inspect.isclass(value):
@@ -112,6 +121,8 @@ def bury_object(obj):
     object_data = inspect.getmembers(obj)
 
     for name, value in object_data:
+        if name in WASTE:
+            continue
         if type(value).__name__ in BUILTIN_TYPES and name not in ('__dict__', '__module__'):
             parsed['fields'][name] = (value, type(value).__name__)
         elif inspect.ismethod(value):
