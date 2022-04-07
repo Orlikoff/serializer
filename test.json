@@ -27,24 +27,24 @@
 		],
 	},
 	"methods": 	{
-		"_Test__init": 		{
+		"__init__": 		{
 			"object_type": "function", 
 			"argcount": "1", 
 			"cellvars": 			[
 			],
-			"code": "b't\x00d\x01\x83\x01\x01\x00d\x00S\x00'", 
+			"code": "740064018301010064005300", 
 			"consts": 			[
 				"None",
 				"AWAKE!",
 			],
-			"filename": "c:\Users\Orlik\Desktop\temp\serializer\test.py", 
-			"firstlineno": "12", 
+			"filename": "633a5c55736572735c4f726c696b5c4465736b746f705c74656d705c73657269616c697a65725c746573742e7079", 
+			"firstlineno": "14", 
 			"flags": "67", 
 			"freevars": 			[
 			],
 			"kwonlyargcount": "0", 
-			"lnotab": "b'\x00\x01'", 
-			"name": "__init", 
+			"lnotab": "0001", 
+			"name": "__init__", 
 			"names": 			[
 				"print",
 			],

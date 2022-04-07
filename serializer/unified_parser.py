@@ -26,7 +26,13 @@ def bury_func(func):
 
     prefix = 'co_'
     for attr in ATTRS:
-        parsed[attr] = code.__getattribute__(prefix+attr)
+        if attr in ('code', 'lnotab'):
+            parsed[attr] = code.__getattribute__(prefix+attr).hex()
+        elif attr == 'filename':
+            parsed[attr] = code.__getattribute__(
+                prefix+attr).encode('utf-8').hex()
+        else:
+            parsed[attr] = code.__getattribute__(prefix+attr)
 
     glob = {k: v for k, v in func.__globals__.items() if k in parsed['names']}
 
@@ -44,14 +50,15 @@ def ressurect_func(data_dict):
                                    data_dict['nlocals'],
                                    data_dict['stacksize'],
                                    data_dict['flags'],
-                                   data_dict['code'],
+                                   bytes.fromhex(data_dict['code']),
                                    data_dict['consts'],
                                    data_dict['names'],
                                    data_dict['varnames'],
-                                   data_dict['filename'],
+                                   bytes.fromhex(
+                                       data_dict['filename']).decode('utf-8'),
                                    data_dict['name'],
                                    data_dict['firstlineno'],
-                                   data_dict['lnotab'],
+                                   bytes.fromhex(data_dict['lnotab']),
                                    data_dict['freevars'],
                                    data_dict['cellvars']
                                    )
