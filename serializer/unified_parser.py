@@ -115,8 +115,7 @@ def ressurect_class(data):
 
     new_class = type('new_class', (), params)
 
-    # return new_class
-    return params
+    return new_class
 
 
 def bury_object(obj):
