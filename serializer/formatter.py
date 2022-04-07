@@ -20,7 +20,7 @@ def indent(string):
 
 def serialize_list_json(data, base_string):
     string = ''
-    string += indent('[\n')
+    string += '[\n'
     tab()
 
     for element in data:
@@ -39,7 +39,7 @@ def serialize_list_json(data, base_string):
 
 def serialize_dict_json(data, base_string):
     string = ''
-    string += indent('{\n')
+    string += '{\n'
     tab()
 
     for k, v in data.items():

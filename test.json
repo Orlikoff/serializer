@@ -1,60 +1,90 @@
 {
 	"object_type": "class", 
-	"fields": 	{
-		"lolich": 		[
+	"fields": {
+		"lolich": [
 			"10",
 			"int",
 		],
-		"dum": 		[
-						{
+		"dum": [
+			{
 				"object_type": "object", 
-				"fields": 				{
+				"fields": {
 				},
-				"methods": 				{
+				"methods": {
+					"__init__": {
+						"object_type": "function", 
+						"argcount": "1", 
+						"cellvars": [
+						],
+						"code": "740064018301010064005300", 
+						"consts": [
+							"None",
+							"Ass",
+						],
+						"filename": "633a5c55736572735c4f726c696b5c4465736b746f705c74656d705c73657269616c697a65725c746573742e7079", 
+						"firstlineno": "7", 
+						"flags": "67", 
+						"freevars": [
+						],
+						"kwonlyargcount": "0", 
+						"lnotab": "0001", 
+						"name": "__init__", 
+						"names": [
+							"print",
+						],
+						"nlocals": "1", 
+						"posonlyargcount": "0", 
+						"stacksize": "2", 
+						"varnames": [
+							"self",
+						],
+						"globals": {
+						},
+					},
 				},
-				"functions": 				{
+				"functions": {
 				},
-				"classes": 				{
+				"classes": {
 				},
-				"objects": 				{
+				"objects": {
 				},
 			},
 			"class_type",
 		],
-		"__dict__": 		[
+		"__dict__": [
 			"<attribute '__dict__' of 'Test' objects>",
 			"getset_descriptor",
 		],
 	},
-	"methods": 	{
-		"__init__": 		{
+	"methods": {
+		"__init__": {
 			"object_type": "function", 
 			"argcount": "1", 
-			"cellvars": 			[
+			"cellvars": [
 			],
 			"code": "740064018301010064005300", 
-			"consts": 			[
+			"consts": [
 				"None",
 				"AWAKE!",
 			],
 			"filename": "633a5c55736572735c4f726c696b5c4465736b746f705c74656d705c73657269616c697a65725c746573742e7079", 
-			"firstlineno": "14", 
+			"firstlineno": "15", 
 			"flags": "67", 
-			"freevars": 			[
+			"freevars": [
 			],
 			"kwonlyargcount": "0", 
 			"lnotab": "0001", 
 			"name": "__init__", 
-			"names": 			[
+			"names": [
 				"print",
 			],
 			"nlocals": "1", 
 			"posonlyargcount": "0", 
 			"stacksize": "2", 
-			"varnames": 			[
+			"varnames": [
 				"self",
 			],
-			"globals": 			{
+			"globals": {
 			},
 		},
 	},

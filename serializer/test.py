@@ -4,7 +4,8 @@ from parser import pack, unpack
 
 
 class T():
-    pass
+    def __init__(self) -> None:
+        print('Ass')
 
 
 class Test():
@@ -15,10 +16,4 @@ class Test():
         print('AWAKE!')
 
 
-test = pack(Test)
-obj = unpack(test)
-
 dump(Test, './test.json')
-
-a = obj()
-print(a.lolich)
