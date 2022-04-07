@@ -11,7 +11,6 @@ def deserialize(data_list):
     tumblers = ['dict']
 
     space_clear_list = [el.strip('\t \n') for el in data_list]
-    print(''.join(space_clear_list))
 
     for line in space_clear_list:
         if '{' in line:
@@ -49,6 +48,5 @@ def deserialize(data_list):
                     parsed_data = line.strip(',').strip('"')
                     BRACKET_BUFFER[current_indentation_level].append(
                         parsed_data)
-            print(parsed_data)
 
     return FINAL_DATA

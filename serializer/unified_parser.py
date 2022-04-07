@@ -10,7 +10,8 @@ WASTE = ('__doc__', '__eq__', '__format__', '__ge__',
          '__le__', '__lt__', '__module__', '__ne__',
          '__reduce__', '__reduce_ex__', '__repr__',
          '__setattr__', '__sizeof__', '__subclasshook__',
-         '__weakref__', '__delattr__', '__new__')
+         '__weakref__', '__delattr__', '__new__', '__dict__',
+         'getset_descriptor')
 
 
 def bury_func(func):
@@ -44,23 +45,23 @@ def bury_func(func):
 def ressurect_func(data_dict):
     """Rebuilds function from data dict"""
 
-    new_func_code = types.CodeType(data_dict['argcount'],
-                                   data_dict['posonlyargcount'],
-                                   data_dict['kwonlyargcount'],
-                                   data_dict['nlocals'],
-                                   data_dict['stacksize'],
-                                   data_dict['flags'],
+    new_func_code = types.CodeType(int(data_dict['argcount']),
+                                   int(data_dict['posonlyargcount']),
+                                   int(data_dict['kwonlyargcount']),
+                                   int(data_dict['nlocals']),
+                                   int(data_dict['stacksize']),
+                                   int(data_dict['flags']),
                                    bytes.fromhex(data_dict['code']),
-                                   data_dict['consts'],
-                                   data_dict['names'],
-                                   data_dict['varnames'],
+                                   tuple(data_dict['consts']),
+                                   tuple(data_dict['names']),
+                                   tuple(data_dict['varnames']),
                                    bytes.fromhex(
                                        data_dict['filename']).decode('utf-8'),
                                    data_dict['name'],
-                                   data_dict['firstlineno'],
+                                   int(data_dict['firstlineno']),
                                    bytes.fromhex(data_dict['lnotab']),
-                                   data_dict['freevars'],
-                                   data_dict['cellvars']
+                                   tuple(data_dict['freevars']),
+                                   tuple(data_dict['cellvars'])
                                    )
 
     return types.FunctionType(new_func_code, data_dict['globals'], 'new')
