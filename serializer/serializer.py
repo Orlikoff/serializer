@@ -13,7 +13,6 @@ def dump(obj, filepath):
 
 
 def loads(string):
-    # return deserialize(string)
     return unpack(deserialize(string))
 
 

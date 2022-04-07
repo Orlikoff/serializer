@@ -1,17 +1,9 @@
 {
 	"object_type": "class", 
 	"fields": {
-		"foo": [
-			"1",
-			"int",
-		],
-		"bar": [
-			"s",
-			"str",
-		],
 	},
 	"methods": {
-		"ass": {
+		"__init__": {
 			"object_type": "function", 
 			"argcount": "1", 
 			"cellvars": [
@@ -19,16 +11,16 @@
 			"code": "740064018301010064005300", 
 			"consts": [
 				"None",
-				"hi",
+				"Ass",
 			],
 			"filename": "633a5c55736572735c4f726c696b5c4465736b746f705c74656d705c73657269616c697a65725c746573742e7079", 
-			"firstlineno": "14", 
+			"firstlineno": "10", 
 			"flags": "67", 
 			"freevars": [
 			],
 			"kwonlyargcount": "0", 
 			"lnotab": "0001", 
-			"name": "ass", 
+			"name": "__init__", 
 			"names": [
 				"print",
 			],
