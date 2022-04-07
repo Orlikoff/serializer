@@ -1,5 +1,3 @@
-import inspect
-
 INDENT = 0
 
 
