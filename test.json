@@ -1,73 +1,84 @@
 {
 	"object_type": "object", 
 	"fields": {
+		"a": [
+			"4",
+			"int",
+		],
+		"b": [
+			"5",
+			"int",
+		],
 	},
 	"methods": {
 		"__init__": {
 			"object_type": "function", 
-			"argcount": "1", 
+			"argcount": "3", 
 			"cellvars": [
 			],
-			"code": "740064018301010064005300", 
+			"code": "7c017c005f007c027c005f01740264018301010064005300", 
 			"consts": [
 				[
 					"None",
 					"NoneType",
 				],
 				[
-					"GASSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS",
+					"gf",
 					"str",
 				],
 			],
 			"filename": "633a5c55736572735c4f726c696b5c4465736b746f705c74656d705c73657269616c697a65725c746573742e7079", 
-			"firstlineno": "18", 
+			"firstlineno": "25", 
 			"flags": "67", 
 			"freevars": [
 			],
 			"kwonlyargcount": "0", 
-			"lnotab": "0001", 
+			"lnotab": "000106010601", 
 			"name": "__init__", 
 			"names": [
+				"a",
+				"b",
 				"print",
 			],
-			"nlocals": "1", 
+			"nlocals": "3", 
 			"posonlyargcount": "0", 
 			"stacksize": "2", 
 			"varnames": [
 				"self",
+				"a",
+				"b",
 			],
 			"globals": {
+				"a": "<__main__.AttrTest object at 0x000001D44B1AFC40>", 
 			},
 			"type_globals": {
+				"a": "AttrTest", 
 			},
 		},
-		"big_boy": {
+		"lul": {
 			"object_type": "function", 
 			"argcount": "1", 
 			"cellvars": [
 			],
-			"code": "74006401740117008301010064005300", 
+			"code": "74007c006a017c006a0217008301010064005300", 
 			"consts": [
 				[
 					"None",
 					"NoneType",
 				],
-				[
-					"SIUUUUUUUUUUUUUUUUUUUU",
-					"str",
-				],
 			],
 			"filename": "633a5c55736572735c4f726c696b5c4465736b746f705c74656d705c73657269616c697a65725c746573742e7079", 
-			"firstlineno": "21", 
+			"firstlineno": "30", 
 			"flags": "67", 
 			"freevars": [
 			],
 			"kwonlyargcount": "0", 
 			"lnotab": "0001", 
-			"name": "big_boy", 
+			"name": "lul", 
 			"names": [
 				"print",
-				"G",
+				"a",
+				"b",
 			],
 			"nlocals": "1", 
 			"posonlyargcount": "0", 
@@ -76,48 +87,10 @@
 				"self",
 			],
 			"globals": {
-				"G": "dsdsds", 
+				"a": "<__main__.AttrTest object at 0x000001D44B1AFC40>", 
 			},
 			"type_globals": {
-				"G": "str", 
-			},
-		},
-		"say_d": {
-			"object_type": "function", 
-			"argcount": "1", 
-			"cellvars": [
-			],
-			"code": "740064018301010064005300", 
-			"consts": [
-				[
-					"None",
-					"NoneType",
-				],
-				[
-					"gere",
-					"str",
-				],
-			],
-			"filename": "633a5c55736572735c4f726c696b5c4465736b746f705c74656d705c73657269616c697a65725c746573742e7079", 
-			"firstlineno": "13", 
-			"flags": "67", 
-			"freevars": [
-			],
-			"kwonlyargcount": "0", 
-			"lnotab": "0001", 
-			"name": "say_d", 
-			"names": [
-				"print",
-			],
-			"nlocals": "1", 
-			"posonlyargcount": "0", 
-			"stacksize": "2", 
-			"varnames": [
-				"self",
-			],
-			"globals": {
-			},
-			"type_globals": {
+				"a": "AttrTest", 
 			},
 		},
 	},

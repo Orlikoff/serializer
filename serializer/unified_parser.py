@@ -186,6 +186,7 @@ def bury_object(obj):
     for name, value in object_data:
         if name in WASTE:
             continue
+
         if type(value).__name__ in BUILTIN_TYPES and name not in ('__dict__', '__module__'):
             parsed['fields'][name] = (value, type(value).__name__)
         elif inspect.ismethod(value):
@@ -204,24 +205,61 @@ def ressurect_object(data):
     for k, v in data['methods'].items():
         params[k] = ressurect_func(v)
 
-    new_class = type('new_class', (), params)
-    new_object = new_class()
+    functions = {}
+    fields = {}
 
     for k, v in data['functions'].items():
-        setattr(new_object, k, ressurect_func(v))
+        functions[k] = ressurect_func(v)
 
     for k, v in data['fields'].items():
         if v[1] == "int":
-            setattr(new_object, k, int(v[0]))
+            fields[k] = int(v[0])
         elif v[1] == "str":
-            setattr(new_object, k, str(v[0]))
+            fields[k] = str(v[0])
         elif v[1] == "bool":
-            setattr(new_object, k, bool(v[0]))
+            fields[k] = bool(v[0])
         elif v[1] == "list":
-            setattr(new_object, k, list(v[0]))
+            fields[k] = list(v[0])
         elif v[1] == "dict":
-            setattr(new_object, k, dict(v[0]))
+            fields[k] = dict(v[0])
         elif v[1] == "tuple":
-            setattr(new_object, k, tuple(v[0]))
+            fields[k] = tuple(v[0])
+
+    list_of_attrs = params['__init__'].__code__.co_varnames
+    args = [v for k, v in fields.items() if k in list_of_attrs and not k == 'self']
+    full_attrs = {**functions, **fields, **params}
+
+    new_class = type('new_class', (), full_attrs)
+    new_object = new_class(*args)
 
     return new_object
+
+# def ressurect_object(data):
+#     """Rebuilds object from data dict"""
+
+#     params = {}
+
+#     for k, v in data['methods'].items():
+#         params[k] = ressurect_func(v)
+
+#     new_class = type('new_class', (), params)
+#     new_object = new_class()
+
+#     for k, v in data['functions'].items():
+#         setattr(new_object, k, ressurect_func(v))
+
+#     for k, v in data['fields'].items():
+#         if v[1] == "int":
+#             setattr(new_object, k, int(v[0]))
+#         elif v[1] == "str":
+#             setattr(new_object, k, str(v[0]))
+#         elif v[1] == "bool":
+#             setattr(new_object, k, bool(v[0]))
+#         elif v[1] == "list":
+#             setattr(new_object, k, list(v[0]))
+#         elif v[1] == "dict":
+#             setattr(new_object, k, dict(v[0]))
+#         elif v[1] == "tuple":
+#             setattr(new_object, k, tuple(v[0]))
+
+#     return new_object
