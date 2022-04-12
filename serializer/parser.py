@@ -1,5 +1,5 @@
 import inspect
-from unified_parser import bury_func, ressurect_func, bury_class, ressurect_class, bury_object, ressurect_object
+from serializer.unified_parser import bury_func, ressurect_func, bury_class, ressurect_class, bury_object, ressurect_object
 
 
 def pack(obj):

@@ -1,5 +1,5 @@
 import enum
-from dumper_loader import *
+from serializer.dumper_loader import *
 
 
 class Languages(enum.Enum):

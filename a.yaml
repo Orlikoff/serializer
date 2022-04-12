@@ -1,3 +1,4 @@
+json_formatted: "
 {
 	"object_type": "object", 
 	"fields": {
@@ -16,29 +17,24 @@
 			"argcount": "3", 
 			"cellvars": [
 			],
-			"code": "7c017c005f007c027c005f01740264018301010064005300", 
+			"code": "7c017c005f007c027c005f0164005300", 
 			"consts": [
 				[
 					"None",
 					"NoneType",
 				],
-				[
-					"gf",
-					"str",
-				],
 			],
-			"filename": "633a5c55736572735c4f726c696b5c4465736b746f705c74656d705c73657269616c697a65725c746573742e7079", 
-			"firstlineno": "22", 
+			"filename": "633a5c55736572735c4f726c696b5c4465736b746f705c74656d705c746573742e7079", 
+			"firstlineno": "7", 
 			"flags": "67", 
 			"freevars": [
 			],
 			"kwonlyargcount": "0", 
-			"lnotab": "000106010601", 
+			"lnotab": "0002", 
 			"name": "__init__", 
 			"names": [
 				"a",
 				"b",
-				"print",
 			],
 			"nlocals": "3", 
 			"posonlyargcount": "0", 
@@ -49,10 +45,8 @@
 				"b",
 			],
 			"globals": {
-				"a": "<__main__.AttrTest object at 0x0000028D5B48FFD0>", 
 			},
 			"type_globals": {
-				"a": "AttrTest", 
 			},
 		},
 		"lul": {
@@ -60,23 +54,22 @@
 			"argcount": "1", 
 			"cellvars": [
 			],
-			"code": "74007401a0027c006a037c006a041700a1018301010064005300", 
+			"code": "7400a0017c006a027c006a031700a101010064005300", 
 			"consts": [
 				[
 					"None",
 					"NoneType",
 				],
 			],
-			"filename": "633a5c55736572735c4f726c696b5c4465736b746f705c74656d705c73657269616c697a65725c746573742e7079", 
-			"firstlineno": "27", 
+			"filename": "633a5c55736572735c4f726c696b5c4465736b746f705c74656d705c746573742e7079", 
+			"firstlineno": "11", 
 			"flags": "67", 
 			"freevars": [
 			],
 			"kwonlyargcount": "0", 
-			"lnotab": "0001", 
+			"lnotab": "0045", 
 			"name": "lul", 
 			"names": [
-				"print",
 				"math",
 				"sin",
 				"a",
@@ -84,17 +77,15 @@
 			],
 			"nlocals": "1", 
 			"posonlyargcount": "0", 
-			"stacksize": "5", 
+			"stacksize": "4", 
 			"varnames": [
 				"self",
 			],
 			"globals": {
 				"math": "<module 'math' (built-in)>", 
-				"a": "<__main__.AttrTest object at 0x0000028D5B48FFD0>", 
 			},
 			"type_globals": {
 				"math": "module", 
-				"a": "AttrTest", 
 			},
 		},
 	},
@@ -105,3 +96,5 @@
 	"objects": {
 	},
 },
+
+"
