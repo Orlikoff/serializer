@@ -1,9 +1,6 @@
+import math
 from pprint import pprint
-from deformatter import deserialize
-from serializer import load, dump
-from parser import pack, unpack
-from unified_parser import bury_class, ressurect_class
-from formatter import serialize_dict_json
+from serializer import loads_json, dumps_json, load_json, dump_json
 
 G = 'dsdsds'
 
@@ -28,11 +25,10 @@ class AttrTest():
         print('gf')
 
     def lul(self):
-        print(self.a+self.b)
+        print(math.sin(self.a))
 
 
 a = AttrTest(4, 5)
-dump(a, './test.json')
+data = dumps_json(a)
 
-b = load('./test.json')
-b.lul()
+b = loads_json(data).lul()

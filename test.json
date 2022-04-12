@@ -28,7 +28,7 @@
 				],
 			],
 			"filename": "633a5c55736572735c4f726c696b5c4465736b746f705c74656d705c73657269616c697a65725c746573742e7079", 
-			"firstlineno": "25", 
+			"firstlineno": "22", 
 			"flags": "67", 
 			"freevars": [
 			],
@@ -49,7 +49,7 @@
 				"b",
 			],
 			"globals": {
-				"a": "<__main__.AttrTest object at 0x000001D44B1AFC40>", 
+				"a": "<__main__.AttrTest object at 0x00000229F8FB36D0>", 
 			},
 			"type_globals": {
 				"a": "AttrTest", 
@@ -60,7 +60,7 @@
 			"argcount": "1", 
 			"cellvars": [
 			],
-			"code": "74007c006a017c006a0217008301010064005300", 
+			"code": "74007401a0027c006a03a1018301010064005300", 
 			"consts": [
 				[
 					"None",
@@ -68,7 +68,7 @@
 				],
 			],
 			"filename": "633a5c55736572735c4f726c696b5c4465736b746f705c74656d705c73657269616c697a65725c746573742e7079", 
-			"firstlineno": "30", 
+			"firstlineno": "27", 
 			"flags": "67", 
 			"freevars": [
 			],
@@ -77,19 +77,22 @@
 			"name": "lul", 
 			"names": [
 				"print",
+				"math",
+				"sin",
 				"a",
-				"b",
 			],
 			"nlocals": "1", 
 			"posonlyargcount": "0", 
-			"stacksize": "3", 
+			"stacksize": "4", 
 			"varnames": [
 				"self",
 			],
 			"globals": {
-				"a": "<__main__.AttrTest object at 0x000001D44B1AFC40>", 
+				"math": "<module 'math' (built-in)>", 
+				"a": "<__main__.AttrTest object at 0x00000229F8FB36D0>", 
 			},
 			"type_globals": {
+				"math": "module", 
 				"a": "AttrTest", 
 			},
 		},
