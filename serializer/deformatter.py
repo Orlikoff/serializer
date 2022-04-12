@@ -1,11 +1,9 @@
-from parser import unpack
-
-
 def deserialize(data_list):
     FINAL_DATA = {}
     BRACKET_BUFFER = {
         1: FINAL_DATA
     }
+
     current_indentation_level = 1
     namespace = []
     tumblers = ['dict']
@@ -31,7 +29,13 @@ def deserialize(data_list):
             tumblers.pop()
             current_indentation_level -= 1
             current_namespace = namespace.pop()
-            BRACKET_BUFFER[current_indentation_level][current_namespace] = BRACKET_BUFFER[current_indentation_level+1]
+
+            if current_namespace == '[':
+                BRACKET_BUFFER[current_indentation_level].append(
+                    BRACKET_BUFFER[current_indentation_level+1])
+            else:
+                BRACKET_BUFFER[current_indentation_level][current_namespace] = BRACKET_BUFFER[current_indentation_level+1]
+
             del BRACKET_BUFFER[current_indentation_level+1]
         else:
             if len(namespace) == 0:

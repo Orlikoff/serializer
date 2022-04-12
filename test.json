@@ -10,11 +10,17 @@
 			],
 			"code": "740064018301010064005300", 
 			"consts": [
-				"None",
-				"Ass",
+				[
+					"None",
+					"NoneType",
+				],
+				[
+					"GASSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS",
+					"str",
+				],
 			],
 			"filename": "633a5c55736572735c4f726c696b5c4465736b746f705c74656d705c73657269616c697a65725c746573742e7079", 
-			"firstlineno": "10", 
+			"firstlineno": "13", 
 			"flags": "67", 
 			"freevars": [
 			],
@@ -31,6 +37,49 @@
 				"self",
 			],
 			"globals": {
+			},
+			"type_globals": {
+			},
+		},
+		"big_boy": {
+			"object_type": "function", 
+			"argcount": "1", 
+			"cellvars": [
+			],
+			"code": "74006401740117008301010064005300", 
+			"consts": [
+				[
+					"None",
+					"NoneType",
+				],
+				[
+					"SIUUUUUUUUUUUUUUUUUUUU",
+					"str",
+				],
+			],
+			"filename": "633a5c55736572735c4f726c696b5c4465736b746f705c74656d705c73657269616c697a65725c746573742e7079", 
+			"firstlineno": "16", 
+			"flags": "67", 
+			"freevars": [
+			],
+			"kwonlyargcount": "0", 
+			"lnotab": "0001", 
+			"name": "big_boy", 
+			"names": [
+				"print",
+				"G",
+			],
+			"nlocals": "1", 
+			"posonlyargcount": "0", 
+			"stacksize": "3", 
+			"varnames": [
+				"self",
+			],
+			"globals": {
+				"G": "dsdsds", 
+			},
+			"type_globals": {
+				"G": "str", 
 			},
 		},
 	},

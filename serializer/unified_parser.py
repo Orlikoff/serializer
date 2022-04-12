@@ -1,4 +1,6 @@
+from importlib import import_module
 import inspect
+import pprint
 import types
 
 
@@ -32,18 +34,43 @@ def bury_func(func):
         elif attr == 'filename':
             parsed[attr] = code.__getattribute__(
                 prefix+attr).encode('utf-8').hex()
+        elif attr == 'consts':
+            res = []
+            for c in code.__getattribute__(prefix+attr):
+                res.append((c, type(c).__name__))
+            parsed[attr] = res
         else:
             parsed[attr] = code.__getattribute__(prefix+attr)
 
     glob = {k: v for k, v in func.__globals__.items() if k in parsed['names']}
+    type_glob = {k: type(v).__name__ for k,
+                 v in func.__globals__.items() if k in parsed['names']}
 
     parsed['globals'] = glob
+    parsed['type_globals'] = type_glob
 
     return parsed
 
 
 def ressurect_func(data_dict):
     """Rebuilds function from data dict"""
+
+    consts = []
+    for const in data_dict['consts']:
+        if const[1] == "int":
+            consts.append(int(const[0]))
+        elif const[1] == "str":
+            consts.append(str(const[0]))
+        elif const[1] == "bool":
+            consts.append(bool(const[0]))
+        elif const[1] == "list":
+            consts.append(list(const[0]))
+        elif const[1] == "dict":
+            consts.append(dict(const[0]))
+        elif const[1] == "tuple":
+            consts.append(tuple(const[0]))
+        elif const[1] == 'NoneType':
+            consts.append(None)
 
     new_func_code = types.CodeType(int(data_dict['argcount']),
                                    int(data_dict['posonlyargcount']),
@@ -52,7 +79,7 @@ def ressurect_func(data_dict):
                                    int(data_dict['stacksize']),
                                    int(data_dict['flags']),
                                    bytes.fromhex(data_dict['code']),
-                                   tuple(data_dict['consts']),
+                                   tuple(consts),
                                    tuple(data_dict['names']),
                                    tuple(data_dict['varnames']),
                                    bytes.fromhex(
@@ -64,7 +91,26 @@ def ressurect_func(data_dict):
                                    tuple(data_dict['cellvars'])
                                    )
 
-    return types.FunctionType(new_func_code, data_dict['globals'], 'new')
+    formatted_globals = {}
+
+    for k, v in data_dict['globals'].items():
+        t = data_dict['type_globals'][k]
+        if t == "int":
+            formatted_globals[k] = int(v)
+        elif t == "str":
+            formatted_globals[k] = str(v)
+        elif t == "bool":
+            formatted_globals[k] = bool(v)
+        elif t == "list":
+            formatted_globals[k] = list(v)
+        elif t == "dict":
+            formatted_globals[k] = dict(v)
+        elif t == "tuple":
+            formatted_globals[k] = tuple(v)
+        elif t == 'module':
+            formatted_globals[k] = import_module(k)
+
+    return types.FunctionType(new_func_code, formatted_globals, 'new')
 
 
 def bury_class(cls):
