@@ -1,6 +1,6 @@
 import math
 from pprint import pprint
-from serializer import loads_json, dumps_json, load_json, dump_json
+from serializer import dump_yaml, load_yaml
 
 G = 'dsdsds'
 
@@ -25,10 +25,11 @@ class AttrTest():
         print('gf')
 
     def lul(self):
-        print(math.sin(self.a))
+        print(math.sin(self.a+self.b))
 
 
 a = AttrTest(4, 5)
-data = dumps_json(a)
 
-b = loads_json(data).lul()
+dump_yaml(a, './test.yaml')
+b = load_yaml('./test.yaml')
+b.lul()

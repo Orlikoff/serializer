@@ -52,3 +52,21 @@ def serialize_dict_json(data, base_string):
     string += indent('},\n')
 
     return string
+
+
+def serialize_dict_toml(data, base_string):
+    string = ''
+    string += 'title = "Serialized Orlikoff Format"\n\n[data]\njson_fomatted = "\n'
+    string += serialize_dict_json(data, base_string)
+    string += '\n"'
+
+    return string
+
+
+def serialize_dict_yaml(data, base_string):
+    string = ''
+    string += 'data: "\n'
+    string += serialize_dict_json(data, base_string)
+    string += '\n"'
+
+    return string
