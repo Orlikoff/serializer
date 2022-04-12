@@ -1,6 +1,6 @@
+import json
 import math
-from pprint import pprint
-from serializer import dump_yaml, load_yaml
+from serializer import Languages, Serializer
 
 G = 'dsdsds'
 
@@ -30,6 +30,5 @@ class AttrTest():
 
 a = AttrTest(4, 5)
 
-dump_yaml(a, './test.yaml')
-b = load_yaml('./test.yaml')
-b.lul()
+json_serializer = Serializer(Languages.JSON)
+json_serializer.dump(a, './test.json')

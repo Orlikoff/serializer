@@ -49,7 +49,7 @@
 				"b",
 			],
 			"globals": {
-				"a": "<__main__.AttrTest object at 0x00000229F8FB36D0>", 
+				"a": "<__main__.AttrTest object at 0x0000028D5B48FFD0>", 
 			},
 			"type_globals": {
 				"a": "AttrTest", 
@@ -60,7 +60,7 @@
 			"argcount": "1", 
 			"cellvars": [
 			],
-			"code": "74007401a0027c006a03a1018301010064005300", 
+			"code": "74007401a0027c006a037c006a041700a1018301010064005300", 
 			"consts": [
 				[
 					"None",
@@ -80,16 +80,17 @@
 				"math",
 				"sin",
 				"a",
+				"b",
 			],
 			"nlocals": "1", 
 			"posonlyargcount": "0", 
-			"stacksize": "4", 
+			"stacksize": "5", 
 			"varnames": [
 				"self",
 			],
 			"globals": {
 				"math": "<module 'math' (built-in)>", 
-				"a": "<__main__.AttrTest object at 0x00000229F8FB36D0>", 
+				"a": "<__main__.AttrTest object at 0x0000028D5B48FFD0>", 
 			},
 			"type_globals": {
 				"math": "module", 

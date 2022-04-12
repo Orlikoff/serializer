@@ -1,63 +1,27 @@
-from formatter import serialize_dict_json, serialize_dict_toml, serialize_dict_yaml
-from parser import pack, unpack
-from deformatter import deserialize
+import enum
+from dumper_loader import *
 
 
-def dumps_json(obj):
-    return serialize_dict_json(pack(obj), '')
+class Languages(enum.Enum):
+    JSON = 1
+    TOML = 2
+    YAML = 3
 
 
-def dump_json(obj, filepath):
-    with open(filepath, 'w') as file:
-        file.writelines(dumps_json(obj))
-
-
-def loads_json(string):
-    data = string.split('\n')
-    return unpack(deserialize(data[1:len(data)-2]))
-
-
-def load_json(filepath):
-    with open(filepath, 'r') as file:
-        data = file.read()
-        return loads_json(data)
-
-
-def dumps_toml(obj):
-    return serialize_dict_toml(pack(obj), '')
-
-
-def dump_toml(obj, filepath):
-    with open(filepath, 'w') as file:
-        file.writelines(dumps_toml(obj))
-
-
-def loads_toml(string):
-    data = string.split('\n')
-    return unpack(deserialize(data[5:len(data)-3]))
-
-
-def load_toml(filepath):
-    with open(filepath, 'r') as file:
-        data = file.read()
-        return loads_toml(data)
-
-
-def dumps_yaml(obj):
-    return serialize_dict_yaml(pack(obj), '')
-
-
-def dump_yaml(obj, filepath):
-    with open(filepath, 'w') as file:
-        file.writelines(dumps_yaml(obj))
-
-
-def loads_yaml(string):
-    data = string.split('\n')
-    return unpack(deserialize(data[2:len(data)-3]))
-
-
-def load_yaml(filepath):
-    with open(filepath, 'r') as file:
-        data = file.read()
-        return loads_yaml(data)
+class Serializer():
+    def __init__(self, language):
+        if language == Languages.JSON:
+            self.dump = dump_json
+            self.load = load_json
+            self.dumps = dumps_json
+            self.loads = loads_json
+        elif language == Languages.TOML:
+            self.dump = dump_toml
+            self.load = load_toml
+            self.dumps = dumps_toml
+            self.loads = loads_toml
+        elif language == Languages.YAML:
+            self.dump = dump_yaml
+            self.load = load_yaml
+            self.dumps = dumps_yaml
+            self.loads = loads_yaml
