@@ -17,8 +17,7 @@ class Dummy():
         print("SIUUUUUUUUUUUUUUUUUUUU"+G)
 
 
-dump(Dummy, './test.json')
+a = Dummy()
+dump(a, './test.json')
 
-a = load('./test.json')
-
-b = a().big_boy()
+b = load('./test.json').big_boy()

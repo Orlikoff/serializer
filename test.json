@@ -1,5 +1,5 @@
 {
-	"object_type": "class", 
+	"object_type": "object", 
 	"fields": {
 	},
 	"methods": {
@@ -20,7 +20,7 @@
 				],
 			],
 			"filename": "633a5c55736572735c4f726c696b5c4465736b746f705c74656d705c73657269616c697a65725c746573742e7079", 
-			"firstlineno": "13", 
+			"firstlineno": "18", 
 			"flags": "67", 
 			"freevars": [
 			],
@@ -58,7 +58,7 @@
 				],
 			],
 			"filename": "633a5c55736572735c4f726c696b5c4465736b746f705c74656d705c73657269616c697a65725c746573742e7079", 
-			"firstlineno": "16", 
+			"firstlineno": "21", 
 			"flags": "67", 
 			"freevars": [
 			],
@@ -82,5 +82,49 @@
 				"G": "str", 
 			},
 		},
+		"say_d": {
+			"object_type": "function", 
+			"argcount": "1", 
+			"cellvars": [
+			],
+			"code": "740064018301010064005300", 
+			"consts": [
+				[
+					"None",
+					"NoneType",
+				],
+				[
+					"gere",
+					"str",
+				],
+			],
+			"filename": "633a5c55736572735c4f726c696b5c4465736b746f705c74656d705c73657269616c697a65725c746573742e7079", 
+			"firstlineno": "13", 
+			"flags": "67", 
+			"freevars": [
+			],
+			"kwonlyargcount": "0", 
+			"lnotab": "0001", 
+			"name": "say_d", 
+			"names": [
+				"print",
+			],
+			"nlocals": "1", 
+			"posonlyargcount": "0", 
+			"stacksize": "2", 
+			"varnames": [
+				"self",
+			],
+			"globals": {
+			},
+			"type_globals": {
+			},
+		},
+	},
+	"functions": {
+	},
+	"classes": {
+	},
+	"objects": {
 	},
 },

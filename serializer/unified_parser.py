@@ -118,7 +118,11 @@ def bury_class(cls):
 
     parsed = {}
     parsed['object_type'] = 'class'
-    parsed['fields'], parsed['methods'] = {}, {}
+    parsed['fields'], parsed['methods'], parsed['bases'] = {}, {}, {}
+
+    for base in cls.__bases__:
+        if not base.__name__ == 'object':
+            parsed['bases'][base.__name__] = bury_class(base)
 
     class_data = cls.__dict__
 
@@ -140,6 +144,11 @@ def ressurect_class(data):
 
     params = {}
 
+    BASES = []
+
+    for _, value in data['bases'].items():
+        BASES.append(ressurect_class(value))
+
     for k, v in data['methods'].items():
         params[k] = ressurect_func(v)
 
@@ -159,7 +168,7 @@ def ressurect_class(data):
         elif v[1] == 'class_type':
             params[k] = ressurect_object(v[0])
 
-    new_class = type('new_class', (), params)
+    new_class = type('new_class', tuple(BASES), params)
 
     return new_class
 
