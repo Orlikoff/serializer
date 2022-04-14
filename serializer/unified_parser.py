@@ -1,3 +1,4 @@
+from hashlib import new
 from importlib import import_module
 import inspect
 import types
@@ -31,8 +32,9 @@ def bury_func(func):
         if attr in ('code', 'lnotab'):
             parsed[attr] = code.__getattribute__(prefix+attr).hex()
         elif attr == 'filename':
-            parsed[attr] = code.__getattribute__(
-                prefix+attr).encode('utf-8').hex()
+            parsed[attr] = 'filename'
+        elif attr == 'firstlineno':
+            parsed[attr] = '0'
         elif attr == 'consts':
             res = []
             for c in code.__getattribute__(prefix+attr):
@@ -41,7 +43,16 @@ def bury_func(func):
         else:
             parsed[attr] = code.__getattribute__(prefix+attr)
 
-    glob = {k: v for k, v in func.__globals__.items() if k in parsed['names']}
+    # glob = {k: v for k, v in func.__globals__.items() if k in parsed['names']}
+    glob = {}
+
+    for k, v in func.__globals__.items():
+        if k in parsed['names']:
+            if type(v).__name__ == 'module':
+                glob[k] = k
+            else:
+                glob[k] = v
+
     type_glob = {k: type(v).__name__ for k,
                  v in func.__globals__.items() if k in parsed['names']}
 
@@ -81,10 +92,9 @@ def ressurect_func(data_dict):
                                    tuple(consts),
                                    tuple(data_dict['names']),
                                    tuple(data_dict['varnames']),
-                                   bytes.fromhex(
-                                       data_dict['filename']).decode('utf-8'),
+                                   'filename',
                                    data_dict['name'],
-                                   int(data_dict['firstlineno']),
+                                   0,
                                    bytes.fromhex(data_dict['lnotab']),
                                    tuple(data_dict['freevars']),
                                    tuple(data_dict['cellvars'])
@@ -226,10 +236,13 @@ def ressurect_object(data):
 
     list_of_attrs = params['__init__'].__code__.co_varnames
     args = [v for k, v in fields.items() if k in list_of_attrs and not k == 'self']
-    full_attrs = {**functions, **fields, **params}
+    full_attrs = {**fields, **params}
 
     new_class = type('new_class', (), full_attrs)
     new_object = new_class(*args)
+
+    for k, v in functions.items():
+        setattr(new_object, k, v)
 
     return new_object
 
