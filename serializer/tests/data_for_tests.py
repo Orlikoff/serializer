@@ -1,3 +1,5 @@
+import math
+
 bury_func_case_1 = {'argcount': 2,
                     'cellvars': (),
                     'code': '7c007c0117005300',
@@ -225,3 +227,40 @@ bury_object_case_2 = {'classes': {},
                                                         'varnames': ('self', 'a')}},
                       'object_type': 'object',
                       'objects': {}}
+# Globals for testing
+G = 10
+
+
+# Functions for testing
+def dummy_func_1(var1, var2):
+    return var1 + var2
+
+
+def dummy_func_2(var1, var2):
+    return var1 + var2 + math.pi + G
+
+
+# Classes for testing
+class Dummy1():
+    def __init__(self):
+        print('Awake!')
+
+    def greetings(self):
+        return True
+
+
+class Dummy2():
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+
+    def greetings_imroved(self, a):
+        return self.a + self.b + a
+
+
+# Objects for testing
+dummy_obj_1 = Dummy1()
+dummy_obj_1.dummy_arg = 'dummy'
+
+dummy_obj_2 = Dummy2(1, 2)
+dummy_obj_2.dummy_arg = dummy_func_2

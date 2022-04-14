@@ -2,7 +2,7 @@ import enum
 from serializer.dumper_loader import *
 
 
-class Languages(enum.Enum):
+class Languages(enum.IntEnum):
     JSON = 1
     TOML = 2
     YAML = 3
