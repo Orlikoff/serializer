@@ -1,7 +1,7 @@
 import math
 import unittest
 from copy import deepcopy
-from data_for_tests import *
+from serializer.tests.data_for_tests import *
 from serializer.unified_parser import bury_func, bury_object, ressurect_func,\
     bury_class, ressurect_class, ressurect_object
 
@@ -66,4 +66,5 @@ class TestUnifiedParser(unittest.TestCase):
         self.assertEqual(obj2.dummy_arg(1, 2), math.pi+13)
 
 
-unittest.main()
+if __name__ == '__main__':
+    unittest.main()

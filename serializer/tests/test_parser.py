@@ -1,7 +1,7 @@
 import math
 import unittest
 from serializer.parser import pack, unpack
-from data_for_tests import *
+from serializer.tests.data_for_tests import *
 
 
 class TestParser(unittest.TestCase):
@@ -26,4 +26,5 @@ class TestParser(unittest.TestCase):
             unpack(bury_object_case_2).dummy_arg(1, 2), math.pi+13)
 
 
-unittest.main()
+if __name__ == '__main__':
+    unittest.main()

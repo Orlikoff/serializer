@@ -3,7 +3,7 @@ from pprint import pprint
 from tempfile import TemporaryFile
 import unittest
 from serializer.serializer_tools import Languages, Serializer
-from data_for_tests import *
+from serializer.tests.data_for_tests import *
 
 
 class TestSerializerTools(unittest.TestCase):
@@ -58,4 +58,5 @@ class TestSerializerTools(unittest.TestCase):
         os.remove('test.yaml')
 
 
-unittest.main()
+if __name__ == '__main__':
+    unittest.main()
