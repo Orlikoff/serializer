@@ -1,7 +1,7 @@
 import math
 import unittest
 from copy import deepcopy
-from test_cases_unified_parser import *
+from data_for_tests import *
 from serializer.unified_parser import bury_func, bury_object, ressurect_func,\
     bury_class, ressurect_class, ressurect_object
 
@@ -61,7 +61,7 @@ class TestUnifiedParser(unittest.TestCase):
 
     def test_ressurect_func_2(self):
         func2 = ressurect_func(bury_func_case_2)
-        self.assertEqual(func2(1, 2), 1+2+math.pi+10)
+        self.assertEqual(func2(1, 2), math.pi+13)
 
     def test_bury_class_1(self):
         buried = bury_class(Dummy1)
@@ -101,7 +101,7 @@ class TestUnifiedParser(unittest.TestCase):
     def test_ressurect_object_2(self):
         obj2 = ressurect_object(bury_object_case_2)
         self.assertEqual(obj2.greetings_imroved(3), 6)
-        self.assertEqual(obj2.dummy_arg(1, 2), 1+2+math.pi+10)
+        self.assertEqual(obj2.dummy_arg(1, 2), math.pi+13)
 
 
 unittest.main()
