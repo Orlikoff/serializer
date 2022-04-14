@@ -1,7 +1,7 @@
 import math
 import unittest
 from copy import deepcopy
-from serializer.tests.data_for_tests import *
+from tests.data_for_tests import *
 from serializer.unified_parser import bury_func, bury_object, ressurect_func,\
     bury_class, ressurect_class, ressurect_object
 

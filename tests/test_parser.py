@@ -1,7 +1,7 @@
 import math
 import unittest
 from serializer.parser import pack, unpack
-from serializer.tests.data_for_tests import *
+from tests.data_for_tests import *
 
 
 class TestParser(unittest.TestCase):

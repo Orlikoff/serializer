@@ -3,7 +3,7 @@ from pprint import pprint
 from tempfile import TemporaryFile
 import unittest
 from serializer.serializer_tools import Languages, Serializer
-from serializer.tests.data_for_tests import *
+from tests.data_for_tests import *
 
 
 class TestSerializerTools(unittest.TestCase):
